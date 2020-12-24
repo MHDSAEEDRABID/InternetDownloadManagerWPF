@@ -1,0 +1,85 @@
+﻿<Window x:Class="InternetDownloadManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InternetDownloadManager"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" MouseDown="Window_MouseDown"
+        WindowStyle="None" MinWidth="400" MinHeight="100"
+        WindowStartupLocation="CenterScreen"
+        Background="#333" 
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Height="450" Width="800">
+
+    <!--#region Files-->
+
+    <StackPanel >
+        <!--
+        <Menu Background="#222" Foreground="White" MouseDown="Window_MouseDown" IsMainMenu="True">
+            <MenuItem
+    Header="_File">
+                <MenuItem
+      Header="Save" Command="{Binding RunDialogCommand}">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Add" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem
+      Header="Save As.." />
+                <MenuItem Header="Exit" InputGestureText="Ctrl+E">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon
+          Kind="ExitToApp" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu> -->
+        <!--#endregion-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Foreground="White"
+    VerticalAlignment="Center" Grid.Column="0"
+    MinWidth="50" Margin="30" FontSize="20"
+    AcceptsReturn="True" x:Name="txtURL"
+    VerticalScrollBarVisibility="Auto"
+    SpellCheck.IsEnabled="True" materialDesign:HintAssist.Foreground="White"
+    materialDesign:HintAssist.Hint="Input Download Link"
+    Height="40">
+            </TextBox>
+            <Button Grid.Column="1" x:Name="btnSave"
+    Style="{StaticResource MaterialDesignRaisedButton}"    Width="100"
+    ToolTip="Resource name: MaterialDesignRaisedButton" Content="Save"/>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="btnPause"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    Width="200"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                Pause
+            </Button>
+            <Button Grid.Column="1" x:Name="btnStart"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    Width="200"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                Start
+            </Button>
+            <Button Grid.Column="2" x:Name="btnResume"
+    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+    Width="200"
+    ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">
+                Resume
+            </Button>
+        </Grid>
+        <ProgressBar Margin="30" Value="0" Height="10" x:Name="DownloadProgress"/>
+        <Label x:Name="txtPrecnt" Width="100" FontSize="19" Foreground="White" HorizontalContentAlignment="Center">IDLE</Label>
+    </StackPanel>
+</Window>
